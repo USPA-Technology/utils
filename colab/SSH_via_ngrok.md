@@ -8,7 +8,7 @@
 5. [Follow the output message after execution](#step5)  
    *  [Error message after execution (skip if not shown)](#step51)
 6. [Connect to Colab VM](#step6)
-7. [Reconnect to Colab VM after disconnection for a while](#step7)
+7. [Reconnect to Colab VM after SSH disconnection for a while](#step7)
 8. [Just in case of accidental termination of Colab VM](#step8)
 
 
@@ -63,13 +63,21 @@ To solve this situation, the easiest way is to create another account, so that y
 
 ## <a id="step6"></a>6. Connect to Colab VM
 
-If things are fine, you are now able to connect to VM. As mentioned in the term of use, Colab VM can be active as much as 12 hour. So make sure you download everything before the VM is automatically stopped.
+If things are fine, you are now able to connect to VM. Remember never close the browser, always keep the Colab notebook session, because it is the best way to guarantee your Colab VM will not be terminated. Last but not least, as mentioned in the term of use, Colab VM can be active as much as 12 hour. So make sure you download everything before the VM is automatically stopped.
 
 <img src="img/ksnip_20201223-205310.png">
 
-## <a id="step7"></a>7. Reconnect to Colab VM after disconnection for a while
+## <a id="step7"></a>7. Reconnect to Colab VM after SSH disconnection for a while
 
-If you are not active via ssh, the free tunnel tunnel will vanish after a while. Don't panic! It's not the Colab VM but the ngrok host interrupts the free tunnel that has been given to you. You just have to recreate the tunnel.
+If either you are not active via ssh or you deliberately exit from ssh connection, the free tunnel tunnel will vanish after a while.
+
+<img src="img/ksnip_20201224-001249.png">
+
+And you may not reconnect via the same ssh command:
+
+<img src="img/ksnip_20201224-001747.png">
+
+Don't panic! It's not that the Colab VM is switched off but the ngrok host interrupts the free tunnel that has been given to you. The previous host and port of this tunnel have been recycled and no longer valid, so that you cannot use the same ssh command to connect back to your Colab VM. In brief, you just have to recreate the free tunnel with a new host and a new port.
 
 1. stop the infinity loop by clicking on `stop` button of the loop cell
 2. click on `start` button of the longest cell to reconnect to the ngrok server
