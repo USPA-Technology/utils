@@ -53,9 +53,20 @@ If things are fine, you are now able to connect to VM. As mentioned in the term 
 
 <img src="img/ksnip_20201223-205310.png">
 
-## 7. Just in case of accidental termination of Colab VM
+## 7. Reconnect to Colab VM after disconnection for a while
 
-If there are running tasks on Colab VM, the VM shuts down much earlier than expected due to human inactivity for a while. You can try the following way to simulate human behavior as if someone actually clicks to the `Reconnect` button every 60 seconds.
+If you are not active via ssh, the free tunnel tunnel will vanish after a while. Don't panic! It's not the Colab VM but the ngrok host interrupts the free tunnel that has been given to you. You just have to recreate the tunnel.
+
+1. stop the infinity loop by clicking on `stop` button of the loop cell
+2. click on `start` button of the longest cell to reconnect to the ngrok server
+3. use the new ssh command to connect to the Colab VM with the unchanged password
+4. start the loop cell again to maintain the current Colab session
+
+<img src="img/ksnip_20201223-214237.png">
+
+## 8. Just in case of accidental termination of Colab VM
+
+If there are running tasks on Colab VM, the VM still shuts down much earlier than expected due to your web session inactivity. You can try the following way to simulate human behavior as if someone actually clicks to the `Reconnect` button every 60 seconds.
 
 <img src="img/ksnip_20201223-212043.png">
 
