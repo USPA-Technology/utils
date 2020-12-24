@@ -73,9 +73,15 @@ If either you are not active via ssh or you deliberately exit from ssh connectio
 
 <img src="img/ksnip_20201224-001249.png">
 
-And you may not reconnect via the same ssh command:
+And you may not reconnect via the same ssh command. Output messages for this situation might look like these examples below.
+
+In case your tunnel has been closed, but the old ngrok host is not reused by anyone. You might encounter this message.
 
 <img src="img/ksnip_20201224-001747.png">
+
+In another case when the old ngrok host is recycled and reused by someone with another identity, you now become an invalid user. You should execute the suggested command line to get rid of the invalid host profile.
+
+<img src="img/ksnip_20201224-105236.png">
 
 Don't panic! It's not that the Colab VM is switched off but the ngrok host interrupts the free tunnel that has been given to you. The previous host and port of this tunnel have been recycled and no longer valid, so that you cannot use the same ssh command to connect back to your Colab VM. In brief, you just have to recreate the free tunnel with a new host and a new port.
 
